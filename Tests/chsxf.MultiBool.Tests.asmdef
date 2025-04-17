@@ -1,0 +1,9 @@
+{
+  "name": "chsxf.MultiBool.Tests",
+  "references": [
+    "chsxf.MultiBool.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}
