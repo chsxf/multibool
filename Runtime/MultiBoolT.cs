@@ -4,7 +4,7 @@ using UnityEngine;
 namespace chsxf
 {
     [Serializable]
-    public struct MultiBool : IEquatable<MultiBool>
+    public struct MultiBool<T> : IEquatable<MultiBool<T>> where T : struct, Enum
     {
         [SerializeField, MultiBoolPackedBits] internal byte boolBits;
 
@@ -70,6 +70,11 @@ namespace chsxf
             }
         }
 
+        public bool this[Enum _enum] {
+            get => this[Convert.ToInt32(_enum)];
+            set => this[Convert.ToInt32(_enum)] = value;
+        }
+
         public MultiBool(bool _first = false,
                          bool _second = false,
                          bool _third = false,
@@ -90,12 +95,12 @@ namespace chsxf
                               );
         }
 
-        public bool Equals(MultiBool _other) {
+        public bool Equals(MultiBool<T> _other) {
             return boolBits == _other.boolBits;
         }
 
         public override bool Equals(object _obj) {
-            return _obj is MultiBool other && Equals(other);
+            return _obj is MultiBool<T> other && Equals(other);
         }
 
         public override int GetHashCode() {
