@@ -15,7 +15,7 @@ namespace chsxf
                 if ((_index < 0) || (_index >= BIT_COUNT)) {
                     throw new IndexOutOfRangeException();
                 }
-                return (bits & (ulong) (1 << _index)) != 0;
+                return (bits & (ulong) (1L << _index)) != 0;
             }
 
             set {
