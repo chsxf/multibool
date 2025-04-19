@@ -11,6 +11,10 @@ namespace chsxf
 
         [SerializeField, MultiBoolPackedBits, FieldOffset(offset: 0)] internal ushort bits;
 
+        public bool None => bits == 0;
+        public bool Any => bits != 0;
+        public bool All => bits == ushort.MaxValue;
+
         public bool this[int _index] {
             get {
                 if ((_index < 0) || (_index >= BIT_COUNT)) {
@@ -43,6 +47,18 @@ namespace chsxf
 
         public override int GetHashCode() {
             return bits.GetHashCode();
+        }
+
+        public static implicit operator bool(MultiBool16 _multiBool) {
+            return _multiBool.All;
+        }
+
+        public static implicit operator MultiBool16(bool _bool) {
+            MultiBool16 multiBool = default;
+            if (_bool) {
+                multiBool.bits = ushort.MaxValue;
+            }
+            return multiBool;
         }
     }
 }

@@ -10,6 +10,10 @@ namespace chsxf
 
         [SerializeField, MultiBoolPackedBits] internal uint bits;
 
+        public bool None => bits == 0;
+        public bool Any => bits != 0;
+        public bool All => bits == uint.MaxValue;
+
         public bool this[int _index] {
             get {
                 if ((_index < 0) || (_index >= BIT_COUNT)) {
@@ -47,6 +51,18 @@ namespace chsxf
 
         public override int GetHashCode() {
             return bits.GetHashCode();
+        }
+
+        public static implicit operator bool(MultiBool32<T> _multiBool) {
+            return _multiBool.All;
+        }
+
+        public static implicit operator MultiBool32<T>(bool _bool) {
+            MultiBool32<T> multiBool = default;
+            if (_bool) {
+                multiBool.bits = uint.MaxValue;
+            }
+            return multiBool;
         }
     }
 }
