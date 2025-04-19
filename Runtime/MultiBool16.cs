@@ -1,14 +1,15 @@
 using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace chsxf
 {
-    [Serializable]
+    [Serializable, StructLayout(LayoutKind.Explicit, Size = 2)]
     public struct MultiBool16 : IEquatable<MultiBool16>
     {
         private const int BIT_COUNT = sizeof(ushort) * 8;
 
-        [SerializeField, MultiBoolPackedBits] internal ushort bits;
+        [SerializeField, MultiBoolPackedBits, FieldOffset(offset: 0)] internal ushort bits;
 
         public bool this[int _index] {
             get {

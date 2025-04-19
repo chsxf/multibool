@@ -15,7 +15,7 @@ namespace chsxf
                 if ((_index < 0) || (_index >= BIT_COUNT)) {
                     throw new IndexOutOfRangeException();
                 }
-                return (bits & (1L << _index)) != 0;
+                return (bits & (1U << _index)) != 0;
             }
 
             set {
@@ -24,17 +24,17 @@ namespace chsxf
                 }
 
                 if (value) {
-                    bits |= (uint) (1L << _index);
+                    bits |= 1U << _index;
                 }
                 else {
-                    bits &= (uint) ~(1L << _index);
+                    bits &= ~(1U << _index);
                 }
             }
         }
 
-        public bool this[Enum _enum] {
-            get => this[Convert.ToInt32(_enum)];
-            set => this[Convert.ToInt32(_enum)] = value;
+        public bool this[T _enum] {
+            get => this[EnumValueRepository<T>.GetIntValue(_enum)];
+            set => this[EnumValueRepository<T>.GetIntValue(_enum)] = value;
         }
 
         public bool Equals(MultiBool32<T> _other) {

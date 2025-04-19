@@ -32,9 +32,9 @@ namespace chsxf
             }
         }
 
-        public bool this[Enum _enum] {
-            get => this[Convert.ToInt32(_enum)];
-            set => this[Convert.ToInt32(_enum)] = value;
+        public bool this[T _enum] {
+            get => this[EnumValueRepository<T>.GetIntValue(_enum)];
+            set => this[EnumValueRepository<T>.GetIntValue(_enum)] = value;
         }
 
         public bool Equals(MultiBool8<T> _other) {

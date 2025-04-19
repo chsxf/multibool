@@ -1,21 +1,22 @@
 using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace chsxf
 {
-    [Serializable]
+    [Serializable, StructLayout(LayoutKind.Explicit, Size = 8)]
     public struct MultiBool64 : IEquatable<MultiBool64>
     {
         private const int BIT_COUNT = sizeof(ulong) * 8;
 
-        [SerializeField, MultiBoolPackedBits] internal ulong bits;
+        [SerializeField, MultiBoolPackedBits, FieldOffset(offset: 0)] internal ulong bits;
 
         public bool this[int _index] {
             get {
                 if ((_index < 0) || (_index >= BIT_COUNT)) {
                     throw new IndexOutOfRangeException();
                 }
-                return (bits & (ulong) (1L << _index)) != 0;
+                return (bits & (1UL << _index)) != 0;
             }
 
             set {
@@ -24,10 +25,10 @@ namespace chsxf
                 }
 
                 if (value) {
-                    bits |= (ulong) (1L << _index);
+                    bits |= 1UL << _index;
                 }
                 else {
-                    bits &= (ulong) ~(1L << _index);
+                    bits &= ~(1UL << _index);
                 }
             }
         }
