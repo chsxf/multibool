@@ -1,7 +1,7 @@
 using chsxf;
 using NUnit.Framework;
 
-namespace Tests
+namespace chsxf
 {
     public static class MultiBool16Tests
     {

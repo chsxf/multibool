@@ -1,4 +1,4 @@
-namespace Tests
+namespace chsxf
 {
     public enum MultiBool32TestEnum
     {

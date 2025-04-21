@@ -2,7 +2,7 @@ using System;
 using chsxf;
 using NUnit.Framework;
 
-namespace Tests
+namespace chsxf
 {
     [TestFixture]
     public static class MultiBoolT8Tests

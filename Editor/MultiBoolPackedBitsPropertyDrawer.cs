@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using chsxf;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace chsxf
 {
     [CustomPropertyDrawer(typeof(MultiBoolPackedBitsAttribute))]
     public class MultiBoolPackedBitsPropertyDrawer : PropertyDrawer
