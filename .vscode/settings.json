@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": false,
+    "[markdown]": {
+        "editor.formatOnSave": true
+    },
+    "markdown.extension.toc.slugifyMode": "github",
+    "markdown-preview-enhanced.previewTheme": "github-dark.css"
+}
