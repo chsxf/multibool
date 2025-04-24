@@ -1,5 +1,8 @@
 **MultiBool** is a Unity package designed to improve memory usage by using bit fields for boolean values.
 
+[![openupm](https://img.shields.io/npm/v/dev.chsxf.multibool?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/dev.chsxf.multibool/)
+[![](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg)](https://gitmoji.dev/)
+
 # Installation
 
 ## Using OpenUPM
